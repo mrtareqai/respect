@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: trading-bot
+    env: docker
+    plan: starter
+    repo: "https://github.com/YourUsername/YourRepo.git"
+    branch: main
+    dockerfilePath: Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: TELEGRAM_TOKEN
+        fromSecret: telegram_token_secret
+      # إذا لديك أسرار أخرى مثل API_KEY أو غيره:
+      # - key: API_KEY
+      #   fromSecret: api_key_secret
